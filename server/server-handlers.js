@@ -1,5 +1,6 @@
 const { nanoid } = require('nanoid');
-const { app } = require('electron');
+const remote = require('electron').remote;
+const app = remote.app;
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const mkdirp = require('mkdirp');
