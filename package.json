@@ -1,0 +1,64 @@
+{
+  "name": "electron-with-server-example",
+  "version": "1.0.0",
+  "main": "server/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "electron-compile": "^6.4.4",
+    "electron-is-dev": "^1.1.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "lodb": "^0.5.2",
+    "lowdb": "^1.0.0",
+    "nanoid": "^3.1.5",
+    "node-ipc": "^9.1.1",
+    "uuid": "^3.3.2"
+  },
+  "scripts": {
+    "start": "electron-forge start",
+    "format": "prettier --write .",
+    "package": "electron-forge package",
+    "make": "cd client && yarn build && cd .. && ELECTRON_IS_DEV=0 electron-forge make"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "electron-forge": "^5.2.4",
+    "electron-prebuilt-compile": "5.0.13"
+  },
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
+        "packageManager": "yarn",
+        "ignore": [
+          "^(\/client\/(?!build).+)"
+        ]
+      },
+      "electronWinstallerConfig": {
+        "name": "electron_with_server_example"
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "",
+        "name": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": "",
+        "name": "electronwithserverexample"
+      }
+    }
+  }
+}
