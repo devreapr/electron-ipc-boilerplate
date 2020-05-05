@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { send } from './ipc';
 
 function App() {
   const [tasks, setTasks] = useState([]);
   const [inputValue, setInputValue] = useState('');
+
+  useEffect(() => {
+    getTasks();
+  }, []);
+
   const getTasks = async () => {
     try {
       const { error, data } = await send('get-todo', {});

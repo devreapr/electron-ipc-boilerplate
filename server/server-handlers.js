@@ -1,11 +1,9 @@
 const { nanoid } = require('nanoid');
-const remote = require('electron').remote;
-const app = remote.app;
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const mkdirp = require('mkdirp');
 
-const storage = app.getPath('userData') + '/rmnd-r';
+const storage = process.env.HOME + '/.rmnd-r';
 
 mkdirp(storage);
 
