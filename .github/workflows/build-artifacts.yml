@@ -28,6 +28,7 @@ jobs:
       - name: Install Deps
         run: |
           yarn install
+          cd client && yarn install
       - name: Publish
         run: |
           yarn make
