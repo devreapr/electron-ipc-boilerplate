@@ -1,14 +1,12 @@
-
 name: build-artifacts
 
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - 'v*'
 
 jobs:
   build:
-
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -45,6 +43,6 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: "out/make/**"
+          files: 'out/make/**'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
