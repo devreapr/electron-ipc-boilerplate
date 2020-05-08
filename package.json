@@ -1,6 +1,7 @@
 {
-  "name": "electron-with-server-example",
+  "name": "electron-ipc-boilerplate",
   "version": "1.0.0",
+  "description": "An example app for electron using node ipc and workers",
   "main": "server/index.js",
   "license": "MIT",
   "dependencies": {
