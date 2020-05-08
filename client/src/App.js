@@ -79,25 +79,34 @@ function App() {
 
   return (
     <div className="App">
-      <input
-        type="text"
-        onKeyUp={(e) => handleInput(e)}
-        onChange={(e) => handleInput(e)}
-        value={inputValue}
-      />
-      <div>
+      <div className="w-100">
+        <input
+          type="text"
+          className="task-input"
+          onKeyUp={(e) => handleInput(e)}
+          onChange={(e) => handleInput(e)}
+          value={inputValue}
+          placeholder="Enter a task"
+        />
+      </div>
+      <div className="w-100">
         <ul>
           {tasks.map((taskItem) => (
             <React.Fragment key={taskItem.id}>
               <li onClick={() => markTask(taskItem)}>
                 {taskItem.marked ? (
-                  <strike>taskItem.text</strike>
+                  <strike>{taskItem.text}</strike>
                 ) : (
                   taskItem.text
                 )}
               </li>
               <div>
-                <button onClick={() => deleteTask(taskItem)}>Delete</button>
+                <button
+                  className="button-small button-black"
+                  onClick={() => deleteTask(taskItem)}
+                >
+                  Delete
+                </button>
               </div>
             </React.Fragment>
           ))}
