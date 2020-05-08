@@ -27,11 +27,11 @@ jobs:
           node-version: 12.x
       - name: Install Deps
         run: |
-          npm install
-          npm postinstall
+          yarn install
+          yarn postinstall
       - name: Publish
         run: |
-          npm make
+          yarn make
       - name: Cleanup artifacts
         run: |
           npx rimraf "out/make/!(*.zip|*.exe|*.deb|*.AppImage|*.dmg)"
