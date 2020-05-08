@@ -28,7 +28,6 @@ jobs:
       - name: Install Deps
         run: |
           yarn install
-          yarn postinstall
       - name: Publish
         run: |
           yarn make
